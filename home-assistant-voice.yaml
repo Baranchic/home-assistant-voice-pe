@@ -594,7 +594,7 @@ light:
               }
             }
             id(global_led_animation_index) = (id(global_led_animation_index) + 1) % 12;
-- addressable_lambda:
+      - addressable_lambda:
           name: "Thinking"
           update_interval: 10ms
           lambda: |-
