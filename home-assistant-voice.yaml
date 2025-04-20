@@ -594,7 +594,7 @@ light:
               }
             }
             id(global_led_animation_index) = (id(global_led_animation_index) + 1) % 12;
-      - addressable_lambda:
+- addressable_lambda:
           name: "Thinking"
           update_interval: 10ms
           lambda: |-
@@ -609,13 +609,7 @@ light:
             Color color(light_color.get_red() * 255, light_color.get_green() * 255,
                   light_color.get_blue() * 255);
             for (int i = 0; i < 12; i++) {
-              if (i == id(global_led_animation_index) % 12) {
-                it[i] = color * uint8_t(255/brightness_step_number*(brightness_step_number-brightness_step));
-              } else if (i == (id(global_led_animation_index) + 6) % 12) {
-                it[i] = color * uint8_t(255/brightness_step_number*(brightness_step_number-brightness_step));
-              } else {
-                it[i] = Color::BLACK;
-              }
+              it[i] = color * uint8_t(255/brightness_step_number*(brightness_step_number-brightness_step));
             }
             if (brightness_decreasing) {
               brightness_step++;
